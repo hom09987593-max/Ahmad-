@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>test</h1>
+    <script>
+fetch('http://127.0.0.1:8000/docs', {
+    method: 'POST',
+    headers: {
+        'Content-Type': "application/json"
+    },
+    body: JSON.stringify({
+        "feed_intake_kg": 22.5,
+        "feed_quality_score": 0.8,
+        "parity": 2,
+        "days_in_milk": 150,
+        "ambient_temp_C": 24.0,
+        "humidity_pct": 65.0,
+        "body_condition_score": 3.2,
+        "somatic_cell_count": 120000
+    })
+})
+.then(res=>res.json())
+.then((data)=>{
+    console.log(data);    
+})
+    </script>
+</body>
+</html>
